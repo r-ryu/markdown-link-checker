@@ -1,0 +1,20 @@
+version: 2.1
+
+jobs:
+  markdown_link_check:
+    docker:
+      - image: cimg/node:15.11.0
+    steps:
+      - checkout
+      - run:
+          name: Install Markdown-Link-Check
+          command: sudo npm i -g markdown-link-check
+      - run:
+          name: Run Markdown-Link-Check
+          command: find . -name '*.md' | xargs -L1 markdown-link-check -c config.json
+
+workflows:
+  workflow:
+    jobs:
+      - markdown_link_check
+

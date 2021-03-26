@@ -1,1 +1,2 @@
 # markdown-link-checker
+CircleCIでMarkdownファイルのリンク切れを自動検知する
